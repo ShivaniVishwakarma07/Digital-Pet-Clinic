@@ -113,25 +113,27 @@ const PetPharmacyRegistration = () => {
 
   const FieldLabel = ({ icon: Icon, children, className = "" }) => (
     <label className={`flex items-center gap-2 ${className}`}>
-      <Icon className="text-[#036735]" />
+      <Icon className="text-[#0078AE]" />
       {children}
     </label>
   );
 
   return (
-    <div className="pharmacy-page" style={{ backgroundColor: "#060d1c" }}>
+    <div className="pharmacy-page">
       <div className="pharmacy-container">
         <div className="pharmacy-header">
           <h1>
-            <FaPills className="inline mr-2 text-[#036735]" />
+            <FaPills className="inline mr-2 text-[#0078AE]" />
             Pet Pharmacy Registration
           </h1>
+
           <p>Register your pharmacy with Digital Pet Clinic</p>
         </div>
 
         <form onSubmit={handleSubmit} className="pharmacy-form">
           <div className="form-group">
             <FieldLabel icon={FaPills}>Pharmacy Name</FieldLabel>
+
             <input
               type="text"
               name="pharmacyName"
@@ -145,6 +147,7 @@ const PetPharmacyRegistration = () => {
           <div className="form-row">
             <div className="form-group">
               <FieldLabel icon={FaUser}>Owner Name</FieldLabel>
+
               <input
                 type="text"
                 name="ownerName"
@@ -163,6 +166,7 @@ const PetPharmacyRegistration = () => {
               >
                 Phone Number
               </FieldLabel>
+
               <input
                 type="tel"
                 name="phone"
@@ -176,6 +180,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaEnvelope}>Email Address</FieldLabel>
+
             <input
               type="email"
               name="email"
@@ -188,6 +193,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaMapMarkerAlt}>Pharmacy Address</FieldLabel>
+
             <textarea
               name="address"
               value={formData.address}
@@ -201,6 +207,7 @@ const PetPharmacyRegistration = () => {
           <div className="form-row">
             <div className="form-group">
               <FieldLabel icon={FaCity}>City</FieldLabel>
+
               <input
                 type="text"
                 name="city"
@@ -213,6 +220,7 @@ const PetPharmacyRegistration = () => {
 
             <div className="form-group">
               <FieldLabel icon={FaMap}>State</FieldLabel>
+
               <input
                 type="text"
                 name="state"
@@ -225,6 +233,7 @@ const PetPharmacyRegistration = () => {
 
             <div className="form-group">
               <FieldLabel icon={FaMapMarkerAlt}>PIN Code</FieldLabel>
+
               <input
                 type="text"
                 name="pincode"
@@ -238,6 +247,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaIdCard}>Pharmacy License Number</FieldLabel>
+
             <input
               type="text"
               name="licenseNumber"
@@ -250,6 +260,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaBriefcaseMedical}>Pharmacy Type</FieldLabel>
+
             <select
               name="pharmacyType"
               value={formData.pharmacyType}
@@ -267,6 +278,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaClipboardList}>Services Provided</FieldLabel>
+
             <textarea
               name="services"
               value={formData.services}
@@ -279,6 +291,7 @@ const PetPharmacyRegistration = () => {
 
           <div className="form-group">
             <FieldLabel icon={FaMapMarkerAlt}>Google Maps Location</FieldLabel>
+
             <input
               type="url"
               name="location"

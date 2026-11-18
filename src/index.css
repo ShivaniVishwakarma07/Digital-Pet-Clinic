@@ -109,3 +109,29 @@
 .form-group select:focus {
   border-color: #174c3c;
 }
+
+.pharmacy-page {
+  background: #edeeee;
+  min-height: 100vh;
+  padding: 40px 20px;
+}
+
+.register-btn {
+  width: 100%;
+  background: #0078ae;
+  color: #ffffff;
+  border: none;
+  border-radius: 6px;
+  padding: 14px 20px;
+  font-size: 16px;
+  font-weight: 600;
+  cursor: pointer;
+}
+.register-btn:hover {
+  background: #025981;
+  transform: scale(1.03);
+}
+
+.register-btn:active {
+  transform: scale(0.98);
+}
