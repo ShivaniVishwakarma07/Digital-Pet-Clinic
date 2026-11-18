@@ -121,10 +121,6 @@ function App() {
             path="/register/pet-pharmacy"
             element={<PetPharmacyRegistration />}
           />
-          <Route
-            path="/register/pet-pharmacy"
-            element={<PetPharmacyRegistration />}
-          />
         </Routes>
 
         <Footer />
