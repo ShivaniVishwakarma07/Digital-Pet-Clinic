@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useState, useEffect } from "react";
 import {
   FaPills,
   FaUser,
@@ -13,7 +13,7 @@ import {
 } from "react-icons/fa";
 
 const SCRIPT_URL =
-  "https://script.google.com/macros/s/AKfycbz6iv82XfQuekhGqzEillpbZMuj8E_Kbd-PU5HTMUDuA9nmY1mrKb0y9xXaTvrtGxfG/exec";
+  "https://script.google.com/macros/s/AKfycbxaOHp2slwPygOf4NwkMRLmIeSpMjVJwyQJuOYeRc_PET6yiu-AGUYRTxhXpkbNyaFH/exec";
 
 const PetPharmacyRegistration = () => {
   const [formData, setFormData] = useState({
@@ -32,6 +32,34 @@ const PetPharmacyRegistration = () => {
     latitude: "",
     longitude: "",
   });
+
+  const [locationDenied, setLocationDenied] = useState(false);
+
+  useEffect(() => {
+    if (!navigator.geolocation) {
+      setLocationDenied(true);
+      return;
+    }
+
+    navigator.geolocation.getCurrentPosition(
+      (position) => {
+        setFormData((prev) => ({
+          ...prev,
+          latitude: position.coords.latitude.toString(),
+          longitude: position.coords.longitude.toString(),
+        }));
+        setLocationDenied(false);
+      },
+      () => {
+        setLocationDenied(true);
+      },
+      {
+        enableHighAccuracy: true,
+        timeout: 15000,
+        maximumAge: 0,
+      },
+    );
+  }, []);
 
   const handleChange = (e) => {
     setFormData((prev) => ({
@@ -249,6 +277,34 @@ const PetPharmacyRegistration = () => {
               required
             />
           </div>
+
+          {locationDenied && (
+            <div className="form-row">
+              <div className="form-group">
+                <FieldLabel icon={FaMapMarkerAlt}>Latitude</FieldLabel>
+                <input
+                  type="text"
+                  name="latitude"
+                  value={formData.latitude}
+                  onChange={handleChange}
+                  placeholder="Enter latitude"
+                  required
+                />
+              </div>
+
+              <div className="form-group">
+                <FieldLabel icon={FaMapMarkerAlt}>Longitude</FieldLabel>
+                <input
+                  type="text"
+                  name="longitude"
+                  value={formData.longitude}
+                  onChange={handleChange}
+                  placeholder="Enter longitude"
+                  required
+                />
+              </div>
+            </div>
+          )}
 
           <button type="submit" className="register-btn">
             Register Pharmacy
