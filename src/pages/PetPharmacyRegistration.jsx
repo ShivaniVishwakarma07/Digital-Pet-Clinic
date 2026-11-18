@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import React, { useEffect, useState } from "react";
 import {
   FaPills,
   FaUser,
@@ -33,25 +33,25 @@ const PetPharmacyRegistration = () => {
     longitude: "",
   });
 
-  const [locationDenied, setLocationDenied] = useState(false);
-
   useEffect(() => {
     if (!navigator.geolocation) {
-      setLocationDenied(true);
+      alert("Geolocation is not supported by your browser.");
       return;
     }
 
     navigator.geolocation.getCurrentPosition(
       (position) => {
+        console.log("Latitude:", position.coords.latitude);
+        console.log("Longitude:", position.coords.longitude);
+
         setFormData((prev) => ({
           ...prev,
           latitude: position.coords.latitude.toString(),
           longitude: position.coords.longitude.toString(),
         }));
-        setLocationDenied(false);
       },
-      () => {
-        setLocationDenied(true);
+      (error) => {
+        console.log("Location error:", error.code, error.message);
       },
       {
         enableHighAccuracy: true,
@@ -70,6 +70,11 @@ const PetPharmacyRegistration = () => {
 
   const handleSubmit = async (e) => {
     e.preventDefault();
+
+    if (!formData.latitude || !formData.longitude) {
+      alert("Please allow location access before submitting the form.");
+      return;
+    }
 
     try {
       const response = await fetch(SCRIPT_URL, {
@@ -106,15 +111,15 @@ const PetPharmacyRegistration = () => {
     }
   };
 
-  const FieldLabel = ({ icon: Icon, children }) => (
-    <label className="flex items-center gap-2">
+  const FieldLabel = ({ icon: Icon, children, className = "" }) => (
+    <label className={`flex items-center gap-2 ${className}`}>
       <Icon className="text-[#036735]" />
       {children}
     </label>
   );
 
   return (
-    <div className="pharmacy-page">
+    <div className="pharmacy-page" style={{ backgroundColor: "#060d1c" }}>
       <div className="pharmacy-container">
         <div className="pharmacy-header">
           <h1>
@@ -151,7 +156,13 @@ const PetPharmacyRegistration = () => {
             </div>
 
             <div className="form-group">
-              <FieldLabel icon={FaPhone}>Phone Number</FieldLabel>
+              <FieldLabel
+                icon={({ className }) => (
+                  <FaPhone className={`${className} -scale-x-100`} />
+                )}
+              >
+                Phone Number
+              </FieldLabel>
               <input
                 type="tel"
                 name="phone"
@@ -277,34 +288,6 @@ const PetPharmacyRegistration = () => {
               required
             />
           </div>
-
-          {locationDenied && (
-            <div className="form-row">
-              <div className="form-group">
-                <FieldLabel icon={FaMapMarkerAlt}>Latitude</FieldLabel>
-                <input
-                  type="text"
-                  name="latitude"
-                  value={formData.latitude}
-                  onChange={handleChange}
-                  placeholder="Enter latitude"
-                  required
-                />
-              </div>
-
-              <div className="form-group">
-                <FieldLabel icon={FaMapMarkerAlt}>Longitude</FieldLabel>
-                <input
-                  type="text"
-                  name="longitude"
-                  value={formData.longitude}
-                  onChange={handleChange}
-                  placeholder="Enter longitude"
-                  required
-                />
-              </div>
-            </div>
-          )}
 
           <button type="submit" className="register-btn">
             Register Pharmacy
