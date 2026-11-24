@@ -22,6 +22,8 @@ import Confirmation from "./Component/success.jsx";
 import PaymentFailed from "./Component/fail.jsx";
 import Before from "./Component/Before.jsx";
 import Rateus from "./Component/Rateus.jsx";
+import ForgotPassword from "./Component/ForgotPassword.jsx";
+import ResetPassword from "./Component/ResetPassword.jsx";
 
 import ProtectedRoute from "./Component/ProtectedRoute.jsx";
 import { FeedbackProvider } from "./context/FeedbackContext";
@@ -70,7 +72,8 @@ function App() {
           {/* ================= AUTH ROUTES ================= */}
           <Route path="/login" element={<Login />} />
           <Route path="/signup" element={<Signup />} />
-
+          <Route path="/forgot-password" element={<ForgotPassword />} />
+          <Route path="/reset-password" element={<ResetPassword />} />
           {/* ================= PROTECTED ROUTES (OWNER / ADMIN) ================= */}
           <Route
             path="/BookConsultation"
