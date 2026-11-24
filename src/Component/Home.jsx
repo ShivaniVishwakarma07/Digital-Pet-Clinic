@@ -934,12 +934,16 @@ export default function FAQ() {
           <div className="mt-12 grid md:grid-cols-3 gap-8 max-w-6xl mx-auto">
             {/* Card 1 */}
             <div className="group rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#0078AE] transition-all duration-300 p-8">
-              <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl mb-5">
-                ⚡
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl flex-shrink-0">
+                  ⚡
+                </div>
+
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Instant Access
+                </h4>
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Instant Access
-              </h4>
+
               <p className="text-base text-gray-700 leading-relaxed">
                 Connect with experienced veterinarians in minutes without long
                 waiting times or travel.
@@ -948,12 +952,16 @@ export default function FAQ() {
 
             {/* Card 2 */}
             <div className="group rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#0078AE] transition-all duration-300 p-8">
-              <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl mb-5">
-                🌍
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl flex-shrink-0">
+                  🌍
+                </div>
+
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Global Availability
+                </h4>
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Global Availability
-              </h4>
+
               <p className="text-base text-gray-700 leading-relaxed">
                 Expert veterinary advice wherever you are, ensuring your pets
                 receive trusted care worldwide.
@@ -962,19 +970,22 @@ export default function FAQ() {
 
             {/* Card 3 */}
             <div className="group rounded-3xl bg-white border border-gray-200 shadow-sm hover:shadow-xl hover:border-[#0078AE] transition-all duration-300 p-8">
-              <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl mb-5">
-                🐾
+              <div className="flex items-center gap-4 mb-5">
+                <div className="w-14 h-14 rounded-2xl bg-[#EAF8FC] flex items-center justify-center text-3xl flex-shrink-0">
+                  🐾
+                </div>
+
+                <h4 className="text-xl font-semibold text-gray-900">
+                  Care for Every Pet
+                </h4>
               </div>
-              <h4 className="text-xl font-semibold text-gray-900 mb-3">
-                Care for Every Pet
-              </h4>
+
               <p className="text-base text-gray-700 leading-relaxed">
                 From dogs and cats to birds, reptiles, rabbits and exotic
                 pets—we're here for every companion.
               </p>
             </div>
           </div>
-
           {/* Stats Card */}
           <div className="mt-16 max-w-6xl mx-auto px-4">
             <div className="relative overflow-hidden rounded-[32px] border border-[#DDEFF6] bg-white shadow-[0_25px_70px_rgba(0,0,0,0.08)]">
