@@ -247,9 +247,6 @@
 //   );
 // }
 
-
-
-
 import React from "react";
 import {
   PawPrint,
@@ -282,7 +279,7 @@ import cat from "./photos/cat.jpg";
 import nutrition from "./photos/nutrition.jpeg";
 import Parasite from "./photos/Parasite.jpeg";
 import tiny from "./photos/tiny.jpg";
-import story from "./photos/story.jpg"
+import story from "./photos/story.jpg";
 
 const categories = [
   {
@@ -420,325 +417,234 @@ const trust = [
 export default function Services() {
   return (
     <section className="relative bg-[#F7FAFF] py-24 overflow-hidden">
-
-      {/* Background */}
       <div className="absolute inset-0">
         <div className="absolute left-0 top-0 h-96 w-96 rounded-full bg-blue-100 blur-[130px]" />
         <div className="absolute right-0 bottom-0 h-96 w-96 rounded-full bg-cyan-100 blur-[150px]" />
       </div>
 
       <div className="relative max-w-7xl mx-auto px-6 lg:px-8">
-
-        {/* HERO */}
-
         <div className="max-w-5xl mx-auto">
+          <motion.div
+            initial={{ opacity: 0, y: 60 }}
+            whileInView={{ opacity: 1, y: 0 }}
+            transition={{ duration: 0.8 }}
+            viewport={{ once: true }}
+          >
+            <p className="uppercase tracking-[0.25em] text-blue-600 font-semibold text-sm mb-5">
+              Our Services
+            </p>
 
-<motion.div
-  initial={{ opacity: 0, y: 60 }}
-  whileInView={{ opacity: 1, y: 0 }}
-  transition={{ duration: 0.8 }}
-  viewport={{ once: true }}
->
-  <p className="uppercase tracking-[0.25em] text-blue-600 font-semibold text-sm mb-5">
-    Our Services
-  </p>
+            <h2 className="text-5xl lg:text-6xl font-black leading-tight text-slate-900">
+              Comprehensive Care,
+              <span className="block text-blue-600">For Every Species</span>
+            </h2>
 
-  <h2 className="text-5xl lg:text-6xl font-black leading-tight text-slate-900">
-    Comprehensive Care,
-    <span className="block text-blue-600">
-      For Every Species
-    </span>
-  </h2>
+            <p className="mt-7 text-slate-600 text-lg leading-8 max-w-3xl">
+              From dogs and cats to birds, reptiles, fish, wildlife and exotic
+              animals, our specialists provide trusted online veterinary care
+              wherever you are.
+            </p>
 
-  <p className="mt-7 text-slate-600 text-lg leading-8 max-w-3xl">
-    From dogs and cats to birds, reptiles, fish, wildlife and exotic animals,
-    our specialists provide trusted online veterinary care wherever you are.
-  </p>
+            <div className="flex flex-wrap gap-5 mt-10">
+              {trust.map((item, index) => (
+                <div
+                  key={index}
+                  className="bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-4 flex items-center gap-4 hover:shadow-lg duration-300"
+                >
+                  <div className="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
+                    {item.icon}
+                  </div>
 
-  <div className="flex flex-wrap gap-5 mt-10">
-    {trust.map((item, index) => (
-      <div
-        key={index}
-        className="bg-white rounded-2xl border border-slate-100 shadow-sm px-5 py-4 flex items-center gap-4 hover:shadow-lg duration-300"
-      >
-        <div className="h-12 w-12 rounded-xl bg-blue-50 flex items-center justify-center text-blue-600">
-          {item.icon}
+                  <div>
+                    <h4 className="font-semibold text-slate-800">
+                      {item.title}
+                    </h4>
+                    <p className="text-sm text-slate-500">{item.desc}</p>
+                  </div>
+                </div>
+              ))}
+            </div>
+          </motion.div>
         </div>
 
-        <div>
-          <h4 className="font-semibold text-slate-800">{item.title}</h4>
-          <p className="text-sm text-slate-500">{item.desc}</p>
-        </div>
-      </div>
-    ))}
-  </div>
-</motion.div>
+        <div className="mt-24 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {categories.slice(0, 4).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.12,
+              }}
+              className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200 shadow-sm hover:shadow-2xl duration-500"
+            >
+              <div className="relative h-72 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover duration-700 group-hover:scale-110"
+                />
 
-</div>
+                <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/10 to-transparent" />
 
-        {/* SERVICES GRID STARTS HERE */}
-        {/* ===================== SERVICES GRID ===================== */}
+                <div className="absolute right-5 top-5 h-12 w-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center shadow-xl group-hover:rotate-12 duration-300">
+                  {item.icon}
+                </div>
 
-<div className="mt-24 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+                <div className="absolute bottom-5 left-5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-slate-700 backdrop-blur">
+                  {item.subtitle}
+                </div>
+              </div>
 
-{categories.slice(0, 4).map((item, index) => (
-  <motion.div
-    key={index}
-    initial={{ opacity: 0, y: 60 }}
-    whileInView={{ opacity: 1, y: 0 }}
-    viewport={{ once: true }}
-    transition={{
-      duration: 0.6,
-      delay: index * 0.12,
-    }}
-    className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200 shadow-sm hover:shadow-2xl duration-500"
-  >
-    {/* IMAGE */}
+              <div className="p-7">
+                <h3 className="text-2xl font-bold text-slate-900 leading-tight">
+                  {item.title}
+                </h3>
 
-    <div className="relative h-72 overflow-hidden">
+                <p className="mt-4 text-[15px] leading-7 text-slate-600">
+                  {item.description}
+                </p>
+              </div>
 
-      <img
-        src={item.image}
-        alt={item.title}
-        className="h-full w-full object-cover duration-700 group-hover:scale-110"
-      />
-
-      {/* Overlay */}
-
-      <div className="absolute inset-0 bg-gradient-to-t from-slate-950 via-slate-900/10 to-transparent" />
-
-
-
-      {/* Icon */}
-
-      <div className="absolute right-5 top-5 h-12 w-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center shadow-xl group-hover:rotate-12 duration-300">
-        {item.icon}
-      </div>
-
-      {/* Subtitle */}
-
-      <div className="absolute bottom-5 left-5 rounded-full bg-white/90 px-4 py-2 text-xs font-semibold text-slate-700 backdrop-blur">
-        {item.subtitle}
-      </div>
-
-    </div>
-
-    {/* Content */}
-
-    <div className="p-7">
-
-      <h3 className="text-2xl font-bold text-slate-900 leading-tight">
-        {item.title}
-      </h3>
-
-      <p className="mt-4 text-[15px] leading-7 text-slate-600">
-        {item.description}
-      </p>
-
-
-
-    </div>
-
-    {/* Hover Gradient */}
-
-    <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-blue-400/0 group-hover:border-blue-300 duration-500" />
-
-  </motion.div>
-))}
-
-</div>
-
-
-
-{/* ===== Continue with categories.slice(4,7) in Part 2B ===== */}
-{/* ===================== SERVICES 5-7 ===================== */}
-
-<div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
-
-  {categories.slice(4, 7).map((item, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 50 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.15,
-      }}
-      className="group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 hover:shadow-2xl duration-500"
-    >
-      {/* IMAGE */}
-
-      <div className="relative h-64 overflow-hidden">
-
-        <img
-          src={item.image}
-          alt={item.title}
-          className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-
-        <div className="absolute top-5 left-5 h-11 w-11 rounded-xl bg-white text-blue-600 flex items-center justify-center shadow-lg">
-          {item.icon}
+              <div className="pointer-events-none absolute inset-0 rounded-[32px] border border-blue-400/0 group-hover:border-blue-300 duration-500" />
+            </motion.div>
+          ))}
         </div>
 
-      </div>
+        <div className="mt-10 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {categories.slice(4, 7).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 50 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+              }}
+              className="group relative overflow-hidden rounded-[30px] bg-white border border-slate-200 hover:shadow-2xl duration-500"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="h-full w-full object-cover transition duration-700 group-hover:scale-110"
+                />
 
-      {/* CONTENT */}
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
 
-      <div className="p-7">
+                <div className="absolute top-5 left-5 h-11 w-11 rounded-xl bg-white text-blue-600 flex items-center justify-center shadow-lg">
+                  {item.icon}
+                </div>
 
-        <h3 className="text-2xl font-bold text-slate-900">
-          {item.title}
-        </h3>
+                <div className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-semibold text-slate-700">
+                  {item.subtitle}
+                </div>
+              </div>
 
-        <p className="mt-2 text-sm font-medium text-blue-600">
-          {item.subtitle}
-        </p>
+              <div className="p-7">
+                <h3 className="text-2xl font-bold text-slate-900">
+                  {item.title}
+                </h3>
 
-        <p className="mt-4 leading-7 text-slate-600">
-          {item.description}
-        </p>
-
-
-
-      </div>
-
-    </motion.div>
-  ))}
-
-</div>
-
-{/* ===================== BLUE CTA ===================== */}
-
-
-
-{/* ===================== NEXT PART ===================== */}
-{/* categories.slice(7,11) */}
-{/* ===================== SERVICES 8-11 ===================== */}
-
-<div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
-
-  {categories.slice(7, 11).map((item, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.12,
-      }}
-      className="group rounded-[30px] overflow-hidden bg-white border border-slate-200 hover:shadow-2xl duration-500"
-    >
-
-      {/* IMAGE */}
-
-      <div className="relative h-64 overflow-hidden">
-
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
-
-        <div className="absolute top-5 right-5 h-12 w-12 rounded-2xl  bg-white text-blue-600 flex items-center justify-center">
-          {item.icon}
+                <p className="mt-4 leading-7 text-slate-600">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        <span className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-semibold text-slate-700">
-          {item.subtitle}
-        </span>
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-2 xl:grid-cols-4 gap-8">
+          {categories.slice(7, 11).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.12,
+              }}
+              className="group rounded-[30px] overflow-hidden bg-white border border-slate-200 hover:shadow-2xl duration-500"
+            >
+              <div className="relative h-64 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover transition duration-700 group-hover:scale-110"
+                />
 
-      </div>
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/10 to-transparent" />
 
-      {/* CONTENT */}
+                <div className="absolute top-5 right-5 h-12 w-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center">
+                  {item.icon}
+                </div>
 
-      <div className="p-7">
+                <span className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-semibold text-slate-700">
+                  {item.subtitle}
+                </span>
+              </div>
 
-        <h3 className="text-2xl font-bold text-slate-900">
-          {item.title}
-        </h3>
+              <div className="p-7">
+                <h3 className="text-2xl font-bold text-slate-900">
+                  {item.title}
+                </h3>
 
-        <p className="mt-4 text-slate-600 leading-7">
-          {item.description}
-        </p>
-
-
-
-      </div>
-
-    </motion.div>
-  ))}
-
-</div>
-
-
-
-{/* NEXT PART → categories.slice(11,14) + FINAL CTA */}
-{/* ===================== SERVICES 12-14 ===================== */}
-
-<div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
-
-  {categories.slice(11, 14).map((item, index) => (
-    <motion.div
-      key={index}
-      initial={{ opacity: 0, y: 60 }}
-      whileInView={{ opacity: 1, y: 0 }}
-      viewport={{ once: true }}
-      transition={{
-        duration: 0.6,
-        delay: index * 0.15,
-      }}
-      className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200 hover:shadow-2xl duration-500"
-    >
-      {/* Image */}
-
-      <div className="relative h-72 overflow-hidden">
-
-        <img
-          src={item.image}
-          alt={item.title}
-          className="w-full h-full object-cover duration-700 group-hover:scale-110"
-        />
-
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
-
-        <div className="absolute top-5 left-5 h-12 w-12 rounded-2xl  bg-white text-blue-600 flex items-center justify-center shadow-xl">
-          {item.icon}
+                <p className="mt-4 text-slate-600 leading-7">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
 
-        <div className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-semibold text-slate-700">
-          {item.subtitle}
+        <div className="mt-12 grid grid-cols-1 md:grid-cols-3 gap-8">
+          {categories.slice(11, 14).map((item, index) => (
+            <motion.div
+              key={index}
+              initial={{ opacity: 0, y: 60 }}
+              whileInView={{ opacity: 1, y: 0 }}
+              viewport={{ once: true }}
+              transition={{
+                duration: 0.6,
+                delay: index * 0.15,
+              }}
+              className="group relative overflow-hidden rounded-[32px] bg-white border border-slate-200 hover:shadow-2xl duration-500"
+            >
+              <div className="relative h-72 overflow-hidden">
+                <img
+                  src={item.image}
+                  alt={item.title}
+                  className="w-full h-full object-cover duration-700 group-hover:scale-110"
+                />
+
+                <div className="absolute inset-0 bg-gradient-to-t from-black/80 to-transparent" />
+
+                <div className="absolute top-5 left-5 h-12 w-12 rounded-2xl bg-white text-blue-600 flex items-center justify-center shadow-xl">
+                  {item.icon}
+                </div>
+
+                <div className="absolute bottom-5 left-5 rounded-full bg-white/90 backdrop-blur px-4 py-2 text-xs font-semibold text-slate-700">
+                  {item.subtitle}
+                </div>
+              </div>
+
+              <div className="p-7">
+                <h3 className="text-2xl font-bold text-slate-900 leading-tight">
+                  {item.title}
+                </h3>
+
+                <p className="mt-4 text-slate-600 leading-7">
+                  {item.description}
+                </p>
+              </div>
+            </motion.div>
+          ))}
         </div>
-
       </div>
-
-      {/* Content */}
-
-      <div className="p-7">
-
-        <h3 className="text-2xl font-bold text-slate-900 leading-tight">
-          {item.title}
-        </h3>
-
-        <p className="mt-4 text-slate-600 leading-7">
-          {item.description}
-        </p>
-
-
-
-      </div>
-    </motion.div>
-  ))}
-
-</div>
-
-
-</div>
-</section>
-);
+    </section>
+  );
 }
