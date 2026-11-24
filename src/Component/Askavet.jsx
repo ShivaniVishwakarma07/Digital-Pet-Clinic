@@ -102,7 +102,7 @@ export default function DoctorsShowcase() {
           });
         }
       }
-    }, 3000);
+    }, 1500);
 
     return () => clearInterval(interval);
   }, []);
