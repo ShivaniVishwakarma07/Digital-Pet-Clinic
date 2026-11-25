@@ -1,4 +1,3 @@
-
 // import React from "react";
 // import { Link } from "react-router-dom";
 // import heroBg from "./photos/Websitebanner.svg";
@@ -17,8 +16,6 @@
 //       {/* Overlay */}
 //       <div className="absolute inset-0 bg-black/20"></div>
 
-
-
 //       {/* Bottom Fade */}
 //       <div className="absolute bottom-0 left-0 right-0 h-32 bg-gradient-to-t from-white via-white/60 to-transparent"></div>
 
@@ -27,9 +24,6 @@
 // };
 
 // export default LandingHero;
-
-
-
 
 // import React from "react";
 // import heroBg from "./photos/Websitebanner.svg";
@@ -65,11 +59,9 @@
 
 // export default LandingHero;
 
-
-
 import React from "react";
-import heroBg from "./photos/1920 x 1080 px  33.svg";
-import heroBgMobile from "./photos/WebMobile.svg";
+import heroBg from "./photos/1920 x 1080 px.svg";
+import heroBgMobile from "./photos/Web Mobile Banner.svg";
 
 const LandingHero = () => {
   return (
@@ -77,10 +69,7 @@ const LandingHero = () => {
       {/* Responsive background banner */}
       <picture className="absolute inset-0 block h-full w-full">
         {/* Mobile image */}
-        <source
-          media="(max-width: 767px)"
-          srcSet={heroBgMobile}
-        />
+        <source media="(max-width: 767px)" srcSet={heroBgMobile} />
 
         {/* Desktop image */}
         <img
